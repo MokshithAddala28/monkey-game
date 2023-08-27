@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Monkey Collector Game</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+  }
+  #game-container {
+    width: 400px;
+    margin: 0 auto;
+    text-align: center;
+  }
+  .monkey {
+    width: 50px;
+    height: 50px;
+    background-color: #FFD700;
+    border-radius: 50%;
+    display: inline-block;
+    margin: 10px;
+    cursor: pointer;
+  }
+</style>
+</head>
+<body>
+<div id="game-container">
+  <h1>Monkey Collector Game</h1>
+  <p>Click on the monkeys to collect them!</p>
+  <p>Score: <span id="score">0</span></p>
+  <div class="monkey"></div>
+  <div class="monkey"></div>
+  <div class="monkey"></div>
+  <div class="monkey"></div>
+  <div class="monkey"></div>
+</div>
+
+<script>
+  const monkeys = document.querySelectorAll('.monkey');
+  const scoreDisplay = document.getElementById('score');
+  let score = 0;
+
+  monkeys.forEach(monkey => {
+    monkey.addEventListener('click', () => {
+      monkey.style.display = 'none';
+      score += 1;
+      scoreDisplay.textContent = score;
+    });
+  });
+</script>
+</body>
+</html>
